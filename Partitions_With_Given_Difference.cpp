@@ -53,10 +53,6 @@ int dynamic_programming_partitions_with_given_difference(int n,int& k,vi &v,vvi 
             dp[i][j]=(dp[i-1][j]%MOD+(j-v[i]>=0?dp[i-1][j-v[i]]:0)%MOD)%MOD;
         }
     }
-    for(int i=0;i<=n;i++){
-        for(int j=0;j<=k;j++)cout<<dp[i][j]<<" ";
-        cout<<nl;
-    }
     return dp[n][k];
 }
 
@@ -64,10 +60,10 @@ int space_optimization(int n,int& k,vi &v){
     // Time Complexity:O(N*(total-k)/2)
     // Space Complexity:O(k)
     vi dp(k+1,0);
+    vi t(k+1,0);
     dp[0]=1;
     if(v[0]<=k)dp[v[0]]+=1;
     for(int i=1;i<=n;i++){
-        vi t(k+1,0);
         for(int j=0;j<=k;j++){
             t[j]=(dp[j]%MOD+(j-v[i]>=0?dp[j-v[i]]:0)%MOD)%MOD;
         }
