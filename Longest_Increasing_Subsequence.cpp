@@ -26,8 +26,8 @@ int recursive_Longest_Increasing_Subsequence(int i,int n,int j,vi &v){
 }
 
 int memoization_Longest_Increasing_Subsequence(int i,int n,int j,vi &v,vvi &dp){
-    // Time Complexity:O(N*M)
-    // Space Complexity:O(N*M)
+    // Time Complexity: O(N^2)
+    // Space Complexity: O(N^2)
     if(i==n)return 0;
     if(dp[i][j+1]!=-1)return dp[i][j+1];
     int nottake = memoization_Longest_Increasing_Subsequence(i+1,n,j,v,dp),take=0;
@@ -36,8 +36,8 @@ int memoization_Longest_Increasing_Subsequence(int i,int n,int j,vi &v,vvi &dp){
 }
 
 int dynamic_programming_Longest_Increasing_Subsequence(int n,vi &v,vvi &dp){
-    // Time Complexity:O(N*M)
-    // Space Complexity:O(N*M)
+    // Time Complexity: O(N^2)
+    // Space Complexity: O(N^2)
     for (int i = 0; i <= n; i++) {
         dp[i][n] = 0;
         dp[i][n-1] = 0;
@@ -59,8 +59,8 @@ int dynamic_programming_Longest_Increasing_Subsequence(int n,vi &v,vvi &dp){
 }
 
 int space_optimization(int n,vi &v){
-    // Time Complexity:O(N*M)
-    // Space Complexity:O(M)
+    // Time Complexity: O(N^2)
+    // Space Complexity: O(N)
     vi dp(n+1,0);
     vi t(n+1,0);
     for (int i = n - 1; i >= 0; i--) {
@@ -78,6 +78,8 @@ int space_optimization(int n,vi &v){
 }
 
 int binary_serach(int n, vi&v){
+    // Time Complexity: O(N log N)
+    // Space Complexity: O(N)
     vi ans;
     ans.push_back(v[0]);
     for(int i=1;i<n;i++){

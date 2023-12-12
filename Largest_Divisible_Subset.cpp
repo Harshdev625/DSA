@@ -17,8 +17,8 @@ using namespace std;
 #define INF 1e9
 
 vector<int> recursive_Largest_Divisible_Subset(int i,int n,int j,vi &v,vi & a){
-    // Time Complexity:O(2^N) // Max(n,m)
-    // Space Complexity:O(N)
+    // Time Complexity: O(2^n)
+    // Space Complexity: O(N)
     if(i==n)return a;
     vi v1=recursive_Largest_Divisible_Subset(i+1,n,j,v,a),v2;
     if(j==-1 || v[i]%v[j]==0){
@@ -30,8 +30,8 @@ vector<int> recursive_Largest_Divisible_Subset(int i,int n,int j,vi &v,vi & a){
 }
 
 vector<int> hashing(int n,vi &v){
-    // Time Complexity:O(N*M)
-    // Space Complexity:O(M)
+    // Time Complexity: O(N^2)
+    // Space Complexity: O(N)
     vi dp(n,1);
     vi t;
     int lastindex=0,maxi=0;
