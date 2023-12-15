@@ -40,7 +40,7 @@ int recursive_Palindrome_Partitioning_II(int i,int n,string &s){
 
 int memoization_Palindrome_Partitioning_II(int i,int n,string &s,vi &dp){
     // Time Complexity: O(N^3)
-    // Space Complexity: O(N^2)
+    // Space Complexity: O(N)
     if(i>n)return 0;
     if(dp[i]!=-1)return dp[i];
     int mini = INT_MAX;
@@ -54,7 +54,7 @@ int memoization_Palindrome_Partitioning_II(int i,int n,string &s,vi &dp){
 
 int dynamic_programming_Palindrome_Partitioning_II(int n,string &s){
     // Time Complexity: O(N^3)
-    // Space Complexity: O(N^2)
+    // Space Complexity: O(N)
     vi dp(n+1,0);
     for (int i = n-1; i >=0; i--) {
         int mini = INT_MAX;

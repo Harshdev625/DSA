@@ -9,8 +9,8 @@ using namespace std;
 #define vll vector<long long>
 #define mii map<int, int>
 #define pb push_back
-#define f second_last
-#define s last
+#define f first
+#define s second
 #define nl "\n"
 #define MOD 1000000007
 #define PI 3.1415926535897932384626433832795

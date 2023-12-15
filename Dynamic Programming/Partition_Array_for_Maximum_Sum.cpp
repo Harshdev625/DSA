@@ -17,7 +17,7 @@ using namespace std;
 #define INF 1e9
 
 int recursive_Partition_Array_for_Maximum_Sum(int i,int n,int k,vi &v){
-    // Time Complexity: O(2^(N^2))
+    // Time Complexity: O(2^(N*K))
     // Space Complexity: O(N)
     if(i>n)return 0;
     int maxi = 0;
@@ -34,8 +34,8 @@ int recursive_Partition_Array_for_Maximum_Sum(int i,int n,int k,vi &v){
 }
 
 int memoization_Partition_Array_for_Maximum_Sum(int i,int n,int k,vi &v,vi &dp){
-    // Time Complexity: O(N^3)
-    // Space Complexity: O(N^2)
+    // Time Complexity: O(N*K)
+    // Space Complexity: O(N)
     if(i>n)return 0;
     if(dp[i]!=-1)return dp[i];
     int maxi = 0;
@@ -52,8 +52,8 @@ int memoization_Partition_Array_for_Maximum_Sum(int i,int n,int k,vi &v,vi &dp){
 }
 
 int dynamic_programming_Partition_Array_for_Maximum_Sum(int n,int k,vi &v){
-    // Time Complexity: O(N^3)
-    // Space Complexity: O(N^2)
+    // Time Complexity: O(N*K)
+    // Space Complexity: O(N)
     vi dp(n+1,0);
     for (int i = n-1; i>=0; i--) {
         int maxi = 0;
