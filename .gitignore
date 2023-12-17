@@ -1,5 +1,4 @@
-/.cph
-/Graph/.cph
+*.cph
 .exe
 Errors.txt
 cp.cpp
