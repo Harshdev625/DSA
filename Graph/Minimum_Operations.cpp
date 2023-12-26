@@ -34,32 +34,6 @@ int minimumOperations(int n, int start, int end, vi &v){
         }
     }
     return distance[end]==INF?-1 : distance[end];
-}   
-
-int findCheapestPrice(int m, vector<vector<int>>& flights, int start, int end, int k) {
-    int n=flights.size();
-    vector<vector<pair<int,int>>> graph(m);
-    for(int i=0;i<n;i++){
-        graph[flights[i][0]].pb({flights[i][1],flights[i][2]});
-    }
-    // k++;
-    vi cost(m,INF);
-    queue<pair<int,pii>>q;
-    cost[start]=0;
-    q.push({0,{start,0}});
-    while(!q.empty()){
-        pii p=q.front().s;
-        int step=q.front().f;
-        q.pop();
-        if(step>k)continue;
-        for(int i=0;i<graph[p.f].size();i++){
-            if( cost[graph[p.f][i].f]> p.s+graph[p.f][i].s){
-                cost[graph[p.f][i].f]=p.s+graph[p.f][i].s;
-                q.push({step + 1, {graph[p.f][i].f,cost[graph[p.f][i].f]}});
-            }
-        }
-    }
-    return cost[end]!=INF? cost[end] : -1;
 }
 
 int main() {

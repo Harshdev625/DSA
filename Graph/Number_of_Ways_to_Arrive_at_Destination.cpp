@@ -46,32 +46,6 @@ int countPaths(int v, vector<vector<int>>& roads) {
     return ways[v - 1] % MOD;
 }
 
-int findCheapestPrice(int m, vector<vector<int>>& roads, int start, int end, int k) {
-    int n=roads.size();
-    vector<vector<pair<int,int>>> graph(m);
-    for(int i=0;i<n;i++){
-        graph[roads[i][0]].pb({roads[i][1],roads[i][2]});
-    }
-    // k++;
-    vi cost(m,INF);
-    queue<pair<int,pii>>q;
-    cost[start]=0;
-    q.push({0,{start,0}});
-    while(!q.empty()){
-        pii p=q.front().s;
-        int step=q.front().f;
-        q.pop();
-        if(step>k)continue;
-        for(int i=0;i<graph[p.f].size();i++){
-            if( cost[graph[p.f][i].f]> p.s+graph[p.f][i].s){
-                cost[graph[p.f][i].f]=p.s+graph[p.f][i].s;
-                q.push({step + 1, {graph[p.f][i].f,cost[graph[p.f][i].f]}});
-            }
-        }
-    }
-    return cost[end]!=INF? cost[end] : -1;
-}
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
